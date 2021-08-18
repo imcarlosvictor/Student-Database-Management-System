@@ -1,4 +1,8 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include <iostream>
+#include "report_card.h"
 using namespace std;
 
 class Student
@@ -11,6 +15,8 @@ class Student
 
   public:
   Student(string fname, string lname, int grade, string phone, string address) {
+    // Create a report card
+    
     f_name = fname;
     l_name = lname;
     grade = grade;
@@ -87,4 +93,13 @@ class Student
     // Display changes
     getAddress();
   }
+
+  void PrintStudentInfo() {
+
+  }
+
+  void PrintReportCard() {
+
+  }
 };
+#endif

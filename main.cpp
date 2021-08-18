@@ -1,6 +1,14 @@
 #include <iostream>
 #include <vector>
+#include "student.h"
+#include "report_card.h"
 using namespace std;
+
+void ListAllRecords();
+void SearchRecord();
+void AddRecord();
+void ModifyRecord();
+void DeleteRecord();
 
 int main() 
 {
@@ -22,15 +30,19 @@ int main()
 
     switch (choice) {
       case 1:
-        ListRecord();
+        // Print all student and report cards
+        ListAllRecords();
         break;
       case 2:
+        // Search for an individual's info and grades
         SearchRecord();
         break;
       case 3:
+        // Add a new student
         AddRecord();
         break;
       case 4:
+        // Modify a student's info or report card
         ModifyRecord();
         break;
       case 5:
