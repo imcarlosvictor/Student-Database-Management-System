@@ -13,7 +13,8 @@ void DeleteRecord();
 int main() 
 {
   bool program = true;
-  while (program) {
+  while (program) 
+  {
     cout << "\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n"; 
     cout << endl; 
     cout << endl;
