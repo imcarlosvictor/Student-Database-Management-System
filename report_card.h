@@ -16,9 +16,7 @@ class ReportCard
   ReportCard();
   ReportCard(int math_first, int history_first, int science_first, int english_first);
 
-  void FirstPeriodGrades();
-  void FinalPeriodGrades();
-  void ListAllGrades();
+  void PrintReportCard();
   void AddGrade();
   void RemoveGrade();
   void EditGrade();

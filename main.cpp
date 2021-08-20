@@ -29,7 +29,8 @@ int main()
     int choice;
     cin >> choice;
 
-    switch (choice) {
+    switch (choice) 
+    {
       case 1:
         // Print all student and report cards
         ListAllRecords();
@@ -58,4 +59,51 @@ int main()
     }
   }
   return 0;
+}
+
+void ListAllRecords()
+{
+
+}
+
+void SearchRecord()
+{
+
+}
+
+void AddRecord()
+{
+  string fname;
+  string lname;
+  int grade;
+  string phone;
+  string address;
+
+  cout << "First name: ";
+  cin >> fname;
+
+  cout << "Last name: ";
+  cin >> lname;
+
+  cout << "Grade: ";
+  cin >> grade;
+
+  cout << "Phone: ";
+  cin >> phone;
+
+  cout << "Address: ";
+  cin >> address;
+
+  Student stud(fname, lname, grade, phone, address);
+  // Create a Report card as well
+}
+
+void ModifyRecord()
+{
+
+}
+
+void DeleteRecord()
+{
+
 }

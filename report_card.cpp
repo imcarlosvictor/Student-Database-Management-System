@@ -1,4 +1,6 @@
+#include <iostream>
 #include "report_card.h"
+using namespace std;
 
 // Consructors
 ReportCard::ReportCard() 
@@ -18,18 +20,14 @@ ReportCard::ReportCard(int math_first, int history_first, int science_first, int
 }
 
 // Methods
-void ReportCard::FirstPeriodGrades()
+void ReportCard::PrintReportCard()
 {
-}
-
-void ReportCard::FinalPeriodGrades()
-{
-
-}
-
-void ReportCard::ListAllGrades()
-{
-
+  cout << "|----------[Report Card]----------|";
+  cout << "|  Subject  |  First   |   Final  |";
+  cout << "|Math: " << math[0] << " | \t" << math[1] << "|";
+  cout << "|History: " << history[0] << " | \t" << history[1] << "|";
+  cout << "|Science: " << science[0] << " | \t" << science[1] << "|";
+  cout << "|English: " << english[0] << " | \t" << english[1] << "|";
 }
 
 void ReportCard::AddGrade()
