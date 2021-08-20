@@ -17,11 +17,12 @@ class Student
   public:
   Student();
   Student(string fname, string lname, int grade, string phone, string address);
+  //TODO: Determine how to have student point to his/her report card
   // Create a report card
   ReportCard report;
   
   void PrintStudentInfo();
-  //TODO: Determine how to have student point to his/her report card
+// TODO: Separate method logic with program logic
   void setName();
   void setGrade();
   void setPhoneNumber();

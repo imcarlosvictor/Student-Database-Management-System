@@ -30,6 +30,7 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
 }
 
 // Methods
+// TODO: Separate method logic with program logic
 void Student::PrintStudentInfo() 
 {
   cout << "\n|----------[Student]----------|\n";

@@ -18,7 +18,7 @@ class ReportCard
 
   void PrintReportCard();
   void AddGrade(string, string, int);
-  void RemoveGrade();
+  void RemoveGrade(string, int);
   void EditGrade(string, string);
 };
 #endif

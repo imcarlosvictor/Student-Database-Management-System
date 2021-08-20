@@ -59,6 +59,7 @@ void ReportCard::AddGrade(string period, string subject, int grade)
 
 void ReportCard::RemoveGrade(string subject, int rm_grade)
 {
+  // Points to the respective array the user intends on changing
   int *sub_ptr;
   if (subject  == "math")
     sub_ptr = math;
@@ -69,10 +70,12 @@ void ReportCard::RemoveGrade(string subject, int rm_grade)
   else if (subject == "english")
     sub_ptr = english;
 
-  // TODO: Find grade and assign to zero
-  for (int* i : sub_ptr) {
-    if (i == rm_grade) {
-      i = 0;
+  // If the value matches with the user's input assign it to 0;
+  for (int i=0; i<2; ++i) {
+    if (*(sub_ptr + i) == rm_grade) {
+      *(sub_ptr + i) = 0;
+    } else {
+      cout << "Grade not found";
     }
   }
 }
