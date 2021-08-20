@@ -15,15 +15,15 @@ int main()
   bool program = true;
   while (program) 
   {
-    cout << "\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n"; 
+    cout << "\n\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n"; 
     cout << endl; 
     cout << endl;
-    cout << "\t1. List All Records\n";
-    cout << "\t2. Search Student Record\n";
-    cout << "\t3. Add New Record\n";
-    cout << "\t4. Modify Student Record\n";
-    cout << "\t5. Delete Student Record\n";
-    cout << "\t6. Exit Record\n";
+    cout << "\t\t1. List All Records\n";
+    cout << "\t\t2. Search Student Record\n";
+    cout << "\t\t3. Add New Record\n";
+    cout << "\t\t4. Modify Student Record\n";
+    cout << "\t\t5. Delete Student Record\n";
+    cout << "\t\t6. Exit Record\n";
 
     cout << "~Select an option: ";
     int choice;
@@ -63,12 +63,12 @@ int main()
 
 void ListAllRecords()
 {
-
+  ;
 }
 
 void SearchRecord()
 {
-
+  ;
 }
 
 void AddRecord()
@@ -96,14 +96,16 @@ void AddRecord()
 
   Student stud(fname, lname, grade, phone, address);
   // Create a Report card as well
+
+  stud.PrintStudentInfo();
 }
 
 void ModifyRecord()
 {
-
+  ;
 }
 
 void DeleteRecord()
 {
-
+  ;
 }

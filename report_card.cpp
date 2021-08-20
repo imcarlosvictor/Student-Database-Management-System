@@ -30,17 +30,54 @@ void ReportCard::PrintReportCard()
   cout << "|English: " << english[0] << " | \t" << english[1] << "|";
 }
 
-void ReportCard::AddGrade()
+void ReportCard::AddGrade(string period, string subject, int grade)
 {
-
+  if (period == "first") {
+    if (subject == "math")
+      math[0] = grade;
+    else if (subject == "history")
+      history[0] = grade;
+    else if (subject == "science")
+      science[0] = grade;
+    else if (subject == "english")
+      english[0] = grade;
+    else
+      cout << "No existing subject in record";
+  } else {
+    if (subject == "math")
+      math[1] = grade;
+    else if (subject == "history")
+      history[1] = grade;
+    else if (subject == "science")
+      science[1] = grade;
+    else if (subject == "english")
+      english[1] = grade;
+    else
+      cout << "No existing subject in record";
+  }
 }
 
-void ReportCard::RemoveGrade()
+void ReportCard::RemoveGrade(string subject, int rm_grade)
 {
+  int *sub_ptr;
+  if (subject  == "math")
+    sub_ptr = math;
+  else if (subject == "history")
+    sub_ptr = history;
+  else if (subject == "science")
+    sub_ptr = science;
+  else if (subject == "english")
+    sub_ptr = english;
 
+  // TODO: Find grade and assign to zero
+  for (int* i : sub_ptr) {
+    if (i == rm_grade) {
+      i = 0;
+    }
+  }
 }
 
-void ReportCard::EditGrade()
+void ReportCard::EditGrade(string period, string subject)
 {
 
 }

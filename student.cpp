@@ -1,31 +1,43 @@
 #include "student.h"
 
 // Constructors
-Student::Student(string fname, string lname, int grade, string phone, string address) 
+Student::Student() {
+  f_name = "";
+  l_name = "";
+  this->grade = 0;
+  phone = "";
+  address = "";
+}
+
+Student::Student(string fname, string lname, int grade, string phone_num, string address) 
 {
   f_name = fname;
   l_name = lname;
-  grade = grade;
-  phone = phone;
+  this->grade = grade;
   address = address;
+  
+  // Print phone number in appropriate format
+  string ph_num;
+  for (int i=0; i<phone_num.size(); ++i) {
+    if (i == 2 || i == 5) {
+      ph_num += phone_num[i];
+      ph_num += "-";
+    } else {
+      ph_num += phone_num[i];
+    }
+  }
+  phone = ph_num;
 }
 
 // Methods
 void Student::PrintStudentInfo() 
 {
+  cout << "\n|----------[Student]----------|\n";
   cout << "First Name: " << f_name << endl;
   cout << "Last Name: " << l_name << endl; 
   cout << "Student Grade: " << grade << endl;
-  cout << "Phone Number: ";
-  // Print phone number in appropriate format
-  for (int i=0; i<phone.size(); ++i) {
-    if (i == 2 || i == 5 || i == 8) {
-      cout << phone[i] << "-";
-    } else {
-      cout << phone[i];
-    }
-  }
-  cout << "Address: " << address;
+  cout << "Phone Number: " << phone << endl;
+  cout << "Address: " << address << endl;
 }
 
 void Student::setName() 
