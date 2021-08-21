@@ -4,11 +4,15 @@
 #include "report_card.h"
 using namespace std;
 
-void ListAllRecords();
-void SearchRecord();
-void AddRecord();
-void ModifyRecord();
-void DeleteRecord();
+void ListAllStudentRecords();
+void SearchStudentRecord(); // Print Student info and report card
+// Student Information
+void AddStudentRecord();
+void ModifyStudentRecord();
+void DeleteStudentRecord();
+// Report Card
+void EditReportCard();
+void RemoveStudentRecord();
 
 int main() 
 {
@@ -23,7 +27,8 @@ int main()
     cout << "\t\t3. Add New Record\n";
     cout << "\t\t4. Modify Student Record\n";
     cout << "\t\t5. Delete Student Record\n";
-    cout << "\t\t6. Exit Record\n";
+    cout << "\t\t6. Edit Report Card\n";
+    cout << "\t\t7. Exit Record\n";
 
     cout << "~Select an option: ";
     int choice;
@@ -33,24 +38,26 @@ int main()
     {
       case 1:
         // Print all student and report cards
-        ListAllRecords();
+        ListAllStudentRecords();
         break;
       case 2:
         // Search for an individual's info and grades
-        SearchRecord();
+        SearchStudentRecord();
         break;
       case 3:
         // Add a new student
-        AddRecord();
+        AddStudentRecord();
         break;
       case 4:
         // Modify a student's info or report card
-        ModifyRecord();
+        ModifyStudentRecord();
         break;
       case 5:
-        DeleteRecord();
+        DeleteStudentRecord();
         break;
       case 6:
+        break;
+      case 7:
         program = false;
         break;
       default:
@@ -61,17 +68,17 @@ int main()
   return 0;
 }
 
-void ListAllRecords()
+void ListAllStudentRecords()
 {
   ;
 }
 
-void SearchRecord()
+void SearchStudentRecord()
 {
   ;
 }
 
-void AddRecord()
+void AddStudentRecord()
 {
   string fname;
   string lname;
@@ -94,18 +101,73 @@ void AddRecord()
   cout << "Address: ";
   cin >> address;
 
-  Student stud(fname, lname, grade, phone, address);
-  // Create a Report card as well
-
-  stud.PrintStudentInfo();
+  //TODO: Create a vector to store all existing students records
+  Student std(fname, lname, grade, phone, address);
+  std.PrintStudentInfo();
 }
 
-void ModifyRecord()
+void ModifyStudentRecord(Student& student)
 {
-  ;
+  bool modify = true;
+  while (modify) {
+    cout << "\n|----------[Edit Record]----------|\n";
+    cout << "1. First name\n";
+    cout << "2. Last name\n";
+    cout << "3. Grade\n";
+    cout << "4. Phone number\n";
+    cout << "5. Address\n";
+    cout << "6. Exit\n";
+
+    int user_input;
+    cin >> user_input;
+
+    switch (user_input) {
+      case 1: {
+                cout << "Enter name: ";
+                string new_name;
+                getline(cin, new_name);
+                student.setName(user_input, new_name);
+                break;
+              }
+      case 2: {
+                cout << "Enter name: ";
+                string new_name;
+                getline(cin, new_name);
+                student.setName(user_input, new_name);
+                break;
+              }
+      case 3: {
+                cout << "Enter grade: ";
+                int new_grade;
+                cin >> new_grade;
+                student.setGrade(new_grade);
+                break;
+              }
+      case 4:
+              {
+                cout << "Enter phone number: ";
+                string new_phone;
+                cin >> new_phone;
+                student.setPhoneNumber(new_phone);
+                break;
+              }
+      case 5:
+              {
+                cout << "Enter new address: ";
+                string new_address;
+                cin >> new_address;
+                student.setAddress(new_address);
+              }
+      case 6:
+              modify = false;
+              break;
+      default:
+              cout << "Select an option within range.";
+    }
+  }
 }
 
-void DeleteRecord()
+void DeleteStudentRecord()
 {
   ;
 }

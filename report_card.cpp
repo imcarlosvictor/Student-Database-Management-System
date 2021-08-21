@@ -30,7 +30,7 @@ void ReportCard::PrintReportCard()
   cout << "|English: " << english[0] << " | \t" << english[1] << "|";
 }
 
-void ReportCard::AddGrade(string period, string subject, int grade)
+void ReportCard::EditGrade(string subject, string period, int grade)
 {
   if (period == "first") {
     if (subject == "math")
@@ -57,10 +57,10 @@ void ReportCard::AddGrade(string period, string subject, int grade)
   }
 }
 
-void ReportCard::RemoveGrade(string subject, int rm_grade)
+void ReportCard::RemoveGrade(string subject, int new_grade)
 {
   // Points to the respective array the user intends on changing
-  int *sub_ptr;
+  int *sub_ptr = nullptr;
   if (subject  == "math")
     sub_ptr = math;
   else if (subject == "history")
@@ -72,15 +72,10 @@ void ReportCard::RemoveGrade(string subject, int rm_grade)
 
   // If the value matches with the user's input assign it to 0;
   for (int i=0; i<2; ++i) {
-    if (*(sub_ptr + i) == rm_grade) {
+    if (*(sub_ptr + i) == new_grade) {
       *(sub_ptr + i) = 0;
     } else {
       cout << "Grade not found";
     }
   }
-}
-
-void ReportCard::EditGrade(string period, string subject)
-{
-
 }

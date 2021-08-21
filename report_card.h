@@ -17,8 +17,8 @@ class ReportCard
   ReportCard(int math_first, int history_first, int science_first, int english_first);
 
   void PrintReportCard();
-  void AddGrade(string, string, int);
+  //TODO: Delete RemoveGrade();
+  void EditGrade(string, string, int);
   void RemoveGrade(string, int);
-  void EditGrade(string, string);
 };
 #endif

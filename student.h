@@ -22,10 +22,9 @@ class Student
   ReportCard report;
   
   void PrintStudentInfo();
-// TODO: Separate method logic with program logic
-  void setName();
-  void setGrade();
-  void setPhoneNumber();
-  void setAddress();
+  void setName(int, string);
+  void setGrade(int);
+  void setPhoneNumber(string);
+  void setAddress(string);
 };
 #endif

@@ -30,7 +30,6 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
 }
 
 // Methods
-// TODO: Separate method logic with program logic
 void Student::PrintStudentInfo() 
 {
   cout << "\n|----------[Student]----------|\n";
@@ -41,45 +40,26 @@ void Student::PrintStudentInfo()
   cout << "Address: " << address << endl;
 }
 
-void Student::setName() 
+void Student::setName(int name_edit, string new_name) 
 {
-  cout << "Edit:\n1. First name\n2.Last Name" << endl;
-  int input;
-  cin >> input;
-  if (input == 1) {
-    cout << "Enter name: ";
-    string first_name;
-    cin >> first_name;
-    // Change first name
-    f_name = first_name;
+  if (name_edit == 1) {
+    f_name = new_name;
   } else {
-    cout << "Enter name: ";
-    string last_name;
-    cin >> last_name;
-    // Change last name
-    l_name = last_name;
+    l_name = new_name;
   }
 }
 
-void Student::setGrade() 
+void Student::setGrade(int new_grade) 
 { 
-  cout << "Enter grade: ";
-  int new_grade;
   grade = new_grade; 
 }
 
-void Student::setPhoneNumber() 
+void Student::setPhoneNumber(string new_phone) 
 {
-  cout << "Enter new phone number: ";
-  string new_phone_who_dis;
-  cin >> new_phone_who_dis;
-  phone = new_phone_who_dis;
+  phone = new_phone;
 }
 
-void Student::setAddress() 
+void Student::setAddress(string new_address) 
 {
-  cout << "Enter new address: ";
-  string new_address;
-  cin >> new_address;
   address = new_address;
 }
