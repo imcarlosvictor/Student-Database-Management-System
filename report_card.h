@@ -18,7 +18,6 @@ class ReportCard
 
   void PrintReportCard();
   //TODO: Delete RemoveGrade();
-  void EditGrade(string, string, int);
-  void RemoveGrade(string, int);
+  void EditGrade(string, int);
 };
 #endif

@@ -30,33 +30,6 @@ void ReportCard::PrintReportCard()
   cout << "|English: " << english[0] << " | \t" << english[1] << "|";
 }
 
-void ReportCard::EditGrade(string subject, string period, int grade)
-{
-  if (period == "first") {
-    if (subject == "math")
-      math[0] = grade;
-    else if (subject == "history")
-      history[0] = grade;
-    else if (subject == "science")
-      science[0] = grade;
-    else if (subject == "english")
-      english[0] = grade;
-    else
-      cout << "No existing subject in record";
-  } else {
-    if (subject == "math")
-      math[1] = grade;
-    else if (subject == "history")
-      history[1] = grade;
-    else if (subject == "science")
-      science[1] = grade;
-    else if (subject == "english")
-      english[1] = grade;
-    else
-      cout << "No existing subject in record";
-  }
-}
-
 void ReportCard::RemoveGrade(string subject, int new_grade)
 {
   // Points to the respective array the user intends on changing
