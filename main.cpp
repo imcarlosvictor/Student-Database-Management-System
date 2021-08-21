@@ -14,9 +14,11 @@ void DeleteStudentRecord();
 void EditReportCard();
 void RemoveStudentRecord();
 
+
 int main()
 {
   vector<Student> database;
+  //Populate database
   Student std1("Carlos", "Torres", 8, "6478812154", "Homeboi");
   Student std2("Marko", "Polo", 8, "6479112154", "Homeboi");
   database.push_back(std1);
@@ -28,7 +30,7 @@ int main()
     cout << "\n\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n";
     cout << endl;
     cout << endl;
-    cout << "\t\t1. List All Records\n";
+    cout << "\t\t1. Display Database Records\n";
     cout << "\t\t2. Search Student Record\n";
     cout << "\t\t3. Add New Record\n";
     cout << "\t\t4. Modify Student Record\n";
@@ -93,9 +95,16 @@ void DisplayStudentRecords(vector<Student> database)
   }
 }
 
-void SearchStudentRecord()
+void SearchStudentRecord(string f_name, string l_name, vector<Student> database)
 {
-  ;
+  // Finds the student record whose first and last name
+  // matches the arguements
+  Student std;
+  for (int i=0; i<database.size(); ++i) {
+    if (database[i].getFirstName() == f_name && database[i].getLastName() == l_name) {
+      std = database[i];
+    }
+  }
 }
 
 void AddStudentRecord(vector<Student>& database)
@@ -125,23 +134,25 @@ void AddStudentRecord(vector<Student>& database)
   Student std(fname, lname, grade, phone, address);
   std.DisplayStudentInfo();
 
-  //TODO: Create a vector to store all existing students records
   //TODO: Determine how to have student point to his/her report card
+  //TODO: Make std unique when pushing to vector
   database.push_back(std);
 
 }
 
 void ModifyStudentRecord(string f_name, string l_name, vector<Student>& database)
 {
+  //TODO: DRY
+  // Finds the student record whose first and last name
+  // matches the arguements
   Student std;
-  //Run for loop to find student from vector
   for (int i=0; i<database.size(); ++i) {
     if (database[i].getFirstName() == f_name && database[i].getLastName() == l_name) {
       std = database[i];
     }
-  }  
+  }
 
-
+  // Navigation tab for modifying student record
   bool modify = true;
   while (modify) {
     cout << "\n|----------[Edit Record]----------|\n";
@@ -150,8 +161,9 @@ void ModifyStudentRecord(string f_name, string l_name, vector<Student>& database
     cout << "3. Grade\n";
     cout << "4. Phone number\n";
     cout << "5. Address\n";
-    cout << "6. Exit\n";
+    cout << "6. Exit\n\n";
 
+    cout << "~Select an option: ";
     int user_input;
     cin >> user_input;
 
@@ -201,7 +213,7 @@ void ModifyStudentRecord(string f_name, string l_name, vector<Student>& database
     }
   }
 
-  // Display new changes
+  // Display changes to the record
   std.DisplayStudentInfo();
 }
 
