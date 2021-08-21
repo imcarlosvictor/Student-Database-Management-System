@@ -7,6 +7,8 @@ Student::Student() {
   this->grade = 0;
   phone = "";
   address = "";
+  // Create a report card
+  ReportCard report;
 }
 
 Student::Student(string fname, string lname, int grade, string phone_num, string address) 
@@ -27,10 +29,12 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
     }
   }
   phone = ph_num;
+  // Create a report card
+  ReportCard report;
 }
 
 // Methods
-void Student::PrintStudentInfo() 
+void Student::DisplayStudentInfo() 
 {
   cout << "\n|----------[Student]----------|\n";
   cout << "First Name: " << f_name << endl;
@@ -38,6 +42,16 @@ void Student::PrintStudentInfo()
   cout << "Student Grade: " << grade << endl;
   cout << "Phone Number: " << phone << endl;
   cout << "Address: " << address << endl;
+}
+
+string Student::getFirstName() 
+{
+  return f_name;
+}
+
+string Student::getLastName()
+{
+  return l_name;
 }
 
 void Student::setName(int name_edit, string new_name) 

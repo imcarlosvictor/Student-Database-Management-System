@@ -4,23 +4,29 @@
 #include "report_card.h"
 using namespace std;
 
-void ListAllStudentRecords();
-void SearchStudentRecord(); // Print Student info and report card
+void DisplayStudentRecords(vector<Student>);
+void SearchStudentRecord(); // Prints Student info and report card
 // Student Information
-void AddStudentRecord();
-void ModifyStudentRecord();
+void AddStudentRecord(vector<Student>&);
+void ModifyStudentRecord(string, string, vector<Student>&);
 void DeleteStudentRecord();
 // Report Card
 void EditReportCard();
 void RemoveStudentRecord();
 
-int main() 
+int main()
 {
+  vector<Student> database;
+  Student std1("Carlos", "Torres", 8, "6478812154", "Homeboi");
+  Student std2("Marko", "Polo", 8, "6479112154", "Homeboi");
+  database.push_back(std1);
+  database.push_back(std2);
+
   bool program = true;
-  while (program) 
+  while (program)
   {
-    cout << "\n\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n"; 
-    cout << endl; 
+    cout << "\n\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n";
+    cout << endl;
     cout << endl;
     cout << "\t\t1. List All Records\n";
     cout << "\t\t2. Search Student Record\n";
@@ -31,14 +37,13 @@ int main()
     cout << "\t\t7. Exit Record\n";
 
     cout << "~Select an option: ";
-    int choice;
-    cin >> choice;
-
-    switch (choice) 
+    int user_input;
+    cin >> user_input;
+    switch (user_input)
     {
       case 1:
         // Print all student and report cards
-        ListAllStudentRecords();
+        DisplayStudentRecords(database);
         break;
       case 2:
         // Search for an individual's info and grades
@@ -46,12 +51,19 @@ int main()
         break;
       case 3:
         // Add a new student
-        AddStudentRecord();
+        AddStudentRecord(database);
         break;
-      case 4:
+      case 4: {
         // Modify a student's info or report card
-        ModifyStudentRecord();
+        string f_name;
+        string l_name;
+        cout << "Student's first name: ";
+        cin >> f_name;
+        cout << "Student's last name: ";
+        cin >> l_name;
+        ModifyStudentRecord(f_name, l_name, database);
         break;
+              }
       case 5:
         DeleteStudentRecord();
         break;
@@ -68,9 +80,17 @@ int main()
   return 0;
 }
 
-void ListAllStudentRecords()
+
+// ####################################################
+// Functions
+// ####################################################
+void DisplayStudentRecords(vector<Student> database)
 {
-  ;
+  cout << "\n|----------[Database Records]----------|\n";
+  for (int i=0; i<database.size(); ++i) {
+    database[i].DisplayStudentInfo();
+    cout << endl;
+  }
 }
 
 void SearchStudentRecord()
@@ -78,7 +98,7 @@ void SearchStudentRecord()
   ;
 }
 
-void AddStudentRecord()
+void AddStudentRecord(vector<Student>& database)
 {
   string fname;
   string lname;
@@ -100,14 +120,28 @@ void AddStudentRecord()
 
   cout << "Address: ";
   cin >> address;
+  cout << endl;
+
+  Student std(fname, lname, grade, phone, address);
+  std.DisplayStudentInfo();
 
   //TODO: Create a vector to store all existing students records
-  Student std(fname, lname, grade, phone, address);
-  std.PrintStudentInfo();
+  //TODO: Determine how to have student point to his/her report card
+  database.push_back(std);
+
 }
 
-void ModifyStudentRecord(Student& student)
+void ModifyStudentRecord(string f_name, string l_name, vector<Student>& database)
 {
+  Student std;
+  //Run for loop to find student from vector
+  for (int i=0; i<database.size(); ++i) {
+    if (database[i].getFirstName() == f_name && database[i].getLastName() == l_name) {
+      std = database[i];
+    }
+  }  
+
+
   bool modify = true;
   while (modify) {
     cout << "\n|----------[Edit Record]----------|\n";
@@ -124,23 +158,23 @@ void ModifyStudentRecord(Student& student)
     switch (user_input) {
       case 1: {
                 cout << "Enter name: ";
-                string new_name;
-                getline(cin, new_name);
-                student.setName(user_input, new_name);
+                string first_name;
+                cin >> first_name;
+                std.setName(user_input, first_name);
                 break;
               }
       case 2: {
                 cout << "Enter name: ";
-                string new_name;
-                getline(cin, new_name);
-                student.setName(user_input, new_name);
+                string last_name;
+                cin >> last_name;
+                std.setName(user_input, last_name);
                 break;
               }
       case 3: {
                 cout << "Enter grade: ";
                 int new_grade;
                 cin >> new_grade;
-                student.setGrade(new_grade);
+                std.setGrade(new_grade);
                 break;
               }
       case 4:
@@ -148,7 +182,7 @@ void ModifyStudentRecord(Student& student)
                 cout << "Enter phone number: ";
                 string new_phone;
                 cin >> new_phone;
-                student.setPhoneNumber(new_phone);
+                std.setPhoneNumber(new_phone);
                 break;
               }
       case 5:
@@ -156,15 +190,19 @@ void ModifyStudentRecord(Student& student)
                 cout << "Enter new address: ";
                 string new_address;
                 cin >> new_address;
-                student.setAddress(new_address);
+                std.setAddress(new_address);
               }
-      case 6:
-              modify = false;
-              break;
+      case 6: {
+                modify = false;
+                break;
+              }
       default:
               cout << "Select an option within range.";
     }
   }
+
+  // Display new changes
+  std.DisplayStudentInfo();
 }
 
 void DeleteStudentRecord()

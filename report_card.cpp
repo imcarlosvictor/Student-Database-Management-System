@@ -20,7 +20,7 @@ ReportCard::ReportCard(int math_first, int history_first, int science_first, int
 }
 
 // Methods
-void ReportCard::PrintReportCard()
+void ReportCard::DisplayReportCard()
 {
   cout << "|----------[Report Card]----------|";
   cout << "|  Subject  |  First   |   Final  |";
@@ -30,7 +30,7 @@ void ReportCard::PrintReportCard()
   cout << "|English: " << english[0] << " | \t" << english[1] << "|";
 }
 
-void ReportCard::RemoveGrade(string subject, int new_grade)
+void ReportCard::EditGrade(string subject, int new_grade)
 {
   // Points to the respective array the user intends on changing
   int *sub_ptr = nullptr;

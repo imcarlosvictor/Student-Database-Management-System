@@ -17,11 +17,10 @@ class Student
   public:
   Student();
   Student(string fname, string lname, int grade, string phone, string address);
-  //TODO: Determine how to have student point to his/her report card
-  // Create a report card
-  ReportCard report;
   
-  void PrintStudentInfo();
+  void DisplayStudentInfo();
+  string getFirstName();
+  string getLastName();
   void setName(int, string);
   void setGrade(int);
   void setPhoneNumber(string);
