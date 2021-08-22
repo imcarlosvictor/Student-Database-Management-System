@@ -19,11 +19,13 @@ class Student
   Student(string fname, string lname, int grade, string phone, string address);
   
   void DisplayStudentInfo();
-  string getFirstName();
-  string getLastName();
-  void setName(int, string);
-  void setGrade(int);
-  void setPhoneNumber(string);
-  void setAddress(string);
+  string GetFirstName();
+  string GetLastName();
+  void SetName(int, string);
+  void SetGrade(int);
+  void SetPhoneNumber(string);
+  void SetAddress(string);
+  void CreateReportCard();
+  void EditReportCard();
 };
 #endif

@@ -3,20 +3,31 @@
 using namespace std;
 
 // Consructors
-ReportCard::ReportCard() 
+ReportCard::ReportCard()
 {
+  // First half
   math[0] = 0;
   history[0] = 0;
   science[0] = 0;
   english[0] = 0;
+  // Final half
+  math[1] = 0;
+  history[1] = 0;
+  science[1] = 0;
+  english[1] = 0;
 }
 
 ReportCard::ReportCard(int math_first, int history_first, int science_first, int english_first) {
-  // First half of the semester
+  // First half
   math[0] = math_first;
   history[0] = history_first;
   science[0] = science_first;
   english[0] = english_first;
+  // Final half
+  math[1] = 0;
+  history[1] = 0;
+  science[1] = 0;
+  english[1] = 0;
 }
 
 // Methods
