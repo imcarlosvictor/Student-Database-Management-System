@@ -31,14 +31,16 @@ ReportCard::ReportCard(int math_first, int history_first, int science_first, int
 }
 
 // Methods
-void ReportCard::DisplayReportCard()
+void ReportCard::GetReportCard()
 {
-  cout << "|----------[Report Card]----------|";
-  cout << "|  Subject  |  First   |   Final  |";
-  cout << "|Math: " << math[0] << " | \t" << math[1] << "|";
-  cout << "|History: " << history[0] << " | \t" << history[1] << "|";
-  cout << "|Science: " << science[0] << " | \t" << science[1] << "|";
-  cout << "|English: " << english[0] << " | \t" << english[1] << "|";
+  cout << "|----------[Report Card]----------|\n";
+  cout << "|  Subject  |  First   |   Final  |\n";
+  cout << "|---------------------------------|\n";
+  cout << "|   Math    |    " << math[0] << "    |    " << math[1] << "     |\n";
+  cout << "|  History  |    " << history[0] << "    |    " << history[1] << "     |\n";
+  cout << "|  Science  |    " << science[0] << "    |    " << science[1] << "     |\n";
+  cout << "|  English  |    " << english[0] << "    |    " << english[1] << "     |\n";
+  cout << endl;
 }
 
 void ReportCard::EditGrade(string subject, int new_grade)

@@ -9,12 +9,12 @@ Student::Student() {
   address = "";
 }
 
-Student::Student(string fname, string lname, int grade, string phone_num, string address) 
+Student::Student(string fname, string lname, int grade, string phone_num, string address)
 {
   f_name = fname;
   l_name = lname;
   this->grade = grade;
-  
+
   // Print phone number in appropriate format
   string ph_num;
   for (int i=0; i<phone_num.size(); ++i) {
@@ -30,17 +30,17 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
 }
 
 // Methods
-void Student::DisplayStudentInfo() 
+void Student::DisplayStudentInfo()
 {
   cout << "\n|##########[Student]##########|\n";
   cout << "First Name: " << f_name << endl;
-  cout << "Last Name: " << l_name << endl; 
+  cout << "Last Name: " << l_name << endl;
   cout << "Student Grade: " << grade << endl;
   cout << "Phone Number: " << phone << endl;
   cout << "Address: " << address << endl;
 }
 
-string Student::GetFirstName() 
+string Student::GetFirstName()
 {
   return f_name;
 }
@@ -50,7 +50,7 @@ string Student::GetLastName()
   return l_name;
 }
 
-void Student::SetName(int name_edit, string new_name) 
+void Student::SetName(int name_edit, string new_name)
 {
   if (name_edit == 1) {
     f_name = new_name;
@@ -59,28 +59,34 @@ void Student::SetName(int name_edit, string new_name)
   }
 }
 
-void Student::SetGrade(int new_grade) 
-{ 
-  grade = new_grade; 
+void Student::SetGrade(int new_grade)
+{
+  grade = new_grade;
 }
 
-void Student::SetPhoneNumber(string new_phone) 
+void Student::SetPhoneNumber(string new_phone)
 {
   phone = new_phone;
 }
 
-void Student::SetAddress(string new_address) 
+void Student::SetAddress(string new_address)
 {
   address = new_address;
 }
 
-void Student::CreateReportCard() {
+void DisplayReportCard()
+{
+
+}
+
+void Student::CreateReportCard()
+{
   int math;
   int history;
   int science;
   int english;
-  
-  cout << "-----[First Period Grades]-----";
+
+  cout << "\n-----[First Period Grades]-----\n";
   cout << "Math: ";
   cin >> math;
   cout << "History: ";
@@ -90,7 +96,12 @@ void Student::CreateReportCard() {
   cout << "English: ";
   cin >> english;
 
-  ReportCard reportCard(math, history, science, english);
-  // Display newly created report card
-  reportCard.DisplayReportCard();
+  ReportCard grades(math, history, science, english);
+  reportCard = grades;
+}
+
+//TODO: Access reportCard class
+void EditReportCard(string subject, int grade)
+{
+  reportCard.EditGrade(subject, grade);
 }

@@ -13,6 +13,7 @@ class Student
   int grade;
   string phone;
   string address;
+  ReportCard reportCard;
 
   public:
   Student();
@@ -25,7 +26,8 @@ class Student
   void SetGrade(int);
   void SetPhoneNumber(string);
   void SetAddress(string);
+  void DisplayReportCard();
   void CreateReportCard();
-  void EditReportCard();
+  void EditReportCard(string, int);
 };
 #endif

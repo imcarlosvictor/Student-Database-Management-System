@@ -36,7 +36,7 @@ int main()
     cout << "\t\t4. Modify Student Record\n";
     cout << "\t\t5. Delete Student Record\n";
     cout << "\t\t6. Edit Report Card\n";
-    cout << "\t\t7. Exit Record\n";
+    cout << "\t\t7. Exit Record\n\n";
 
     cout << "~Select an option: ";
     int user_input;
@@ -69,9 +69,9 @@ int main()
           // Modify a student's info or report card
           string f_name;
           string l_name;
-          cout << "Student's first name: ";
+          cout << "First name: ";
           cin >> f_name;
-          cout << "Student's last name: ";
+          cout << "Last name: ";
           cin >> l_name;
           Student student = SearchStudentRecord(f_name, l_name, database);
           ModifyStudentRecord(student);
@@ -217,10 +217,16 @@ void ModifyStudentRecord(Student& std)
       case 6:
         {
           std.CreateReportCard();  
+          break;
         }
       case 7:
         {
-
+          //TODO: Edit Report Card
+          string subject;
+          string grade;
+          //NOTE: Fix student.cpp
+          std.EditReportCard();
+          break;
         }
       case 8: 
         {

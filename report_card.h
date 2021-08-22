@@ -16,7 +16,7 @@ class ReportCard
   ReportCard();
   ReportCard(int math_first, int history_first, int science_first, int english_first);
 
-  void DisplayReportCard();
+  void GetReportCard();
   void EditGrade(string, int);
 };
 #endif
