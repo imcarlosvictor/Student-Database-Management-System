@@ -10,8 +10,6 @@ Student::Student() {
   this->grade = 0;
   phone = "";
   address = "";
-  // Create report card
-  ReportCard report;
 }
 
 Student::Student(string fname, string lname, int grade, string phone_num, string address)
@@ -32,8 +30,6 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
   }
   phone = ph_num;
   address = address;
-  // Create report card
-  ReportCard report;
 }
 
 // MEMBER FUNCTIONS
@@ -45,21 +41,6 @@ void Student::DisplayStudentInfo()
   cout << "Student Grade: " << grade << endl;
   cout << "Phone Number: " << phone << endl;
   cout << "Address: " << address << endl;
-}
-
-// TODO: undeclared identifier??
-// TODO: Grab grades from reportcard
-void Student::DisplayReportCard()
-{
-  int math_1 = this->report.GetGrade("math", 1);
-  cout << "|----------[Report Card]----------|\n";
-  cout << "|  Subject  |  First   |   Final  |\n";
-  cout << "|---------------------------------|\n";
-  cout << "|   Math    |    " << math[0] << "    |    " << math[1] << "     |\n";
-  cout << "|  History  |    " << history[0] << "    |    " << history[1] << "     |\n";
-  cout << "|  Science  |    " << science[0] << "    |    " << science[1] << "     |\n";
-  cout << "|  English  |    " << english[0] << "    |    " << english[1] << "     |\n";
-  cout << endl;
 }
 
 string Student::GetFirstName()
@@ -109,6 +90,15 @@ void Student::SetAddress()
   address = new_address;
 }
 
+void Student::SetReportCard(Student::ReportCard &reportCard)
+{
+  report = reportCard;
+}
+
+Student::ReportCard Student::GetReportCard()
+{
+  return report;
+}
 
 // ########################################## 
 // REPORT CARD
@@ -158,6 +148,18 @@ void Student::ReportCard::EditGrades()
     science[period] = grade;
   else if (subject == "english")
     english[period] = grade;
+}
+
+void Student::ReportCard::DisplayReportCard()
+{
+  cout << "|----------[Report Card]----------|\n";
+  cout << "|  Subject  |  First   |   Final  |\n";
+  cout << "|---------------------------------|\n";
+  cout << "|   Math    |    " << math[0] << "    |    " << math[1] << "     |\n";
+  cout << "|  History  |    " << history[0] << "    |    " << history[1] << "     |\n";
+  cout << "|  Science  |    " << science[0] << "    |    " << science[1] << "     |\n";
+  cout << "|  English  |    " << english[0] << "    |    " << english[1] << "     |\n";
+  cout << endl;
 }
 
 int Student::ReportCard::GetGrade(string subject, int period)

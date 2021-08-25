@@ -7,13 +7,7 @@ using namespace std;
 
 class Student
 {
-  private:
-  string f_name;
-  string l_name;
-  int grade;
-  string phone;
-  string address;
-  // Report Card
+  public:
   class ReportCard
   {
     private:
@@ -24,23 +18,31 @@ class Student
 
     public:
     ReportCard();
-
     void SetGrades(int, int, int, int, int);
     void EditGrades();
+    void DisplayReportCard();
     int GetGrade(string, int);
   };
 
-  public:
   Student();
   Student(string, string, int, string, string);
-  
   void DisplayStudentInfo();
-  void DisplayReportCard(); // TODO: undeclared identifier??
   string GetFirstName();
   string GetLastName();
   void SetName(int);
   void SetGrade();
   void SetPhoneNumber();
   void SetAddress();
+  void SetReportCard(ReportCard&);
+  Student::ReportCard GetReportCard();
+
+  private:
+  string f_name;
+  string l_name;
+  int grade;
+  string phone;
+  string address;
+  ReportCard report;
+
 };
 #endif

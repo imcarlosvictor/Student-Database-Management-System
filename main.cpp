@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "student.h"
-#include "report_card.h"
 using namespace std;
 
 // Student Information
@@ -43,34 +42,39 @@ int main()
     switch (user_input)
     {
       case 1:
-        // Print all student and report cards
-        DisplayStudentRecords(database);
-        break;
+        {
+          // Print all student and report cards
+          DisplayStudentRecords(database);
+          break;
+        }
       case 2: 
         {
           // Search for an individual's info and grades
           Student student = SearchStudentRecord(database);
           student.DisplayStudentInfo();
-          //TODO: Display Student Report Card
           break;
         }
       case 3:
-        // Add a new student
-        AddStudentRecord(database);
-        break;
+        {
+          AddStudentRecord(database);
+          break;
+        }
       case 4: 
         {
-          // Modify a student's info or report card
           Student student = SearchStudentRecord(database);
           ModifyStudentRecord(student);
           break;
         }
       case 5:
-        DeleteStudentRecord();
-        break;
+        {
+          DeleteStudentRecord();
+          break;
+        }
       case 6:
-        program = false;
-        break;
+        {
+          program = false;
+          break;
+        }
       default:
         cout << "Enter a number within range" << endl;
         continue;
@@ -83,7 +87,6 @@ int main()
 // ####################################################
 // Functions
 // ####################################################
-
 void DisplayStudentRecords(vector<Student> database)
 {
   cout << "\n|----------[Database Records]----------|\n";
@@ -122,31 +125,29 @@ void AddStudentRecord(vector<Student>& database)
 
   cout << "First name: ";
   cin >> fname;
-
   cout << "Last name: ";
   cin >> lname;
-
   cout << "Grade: ";
   cin >> grade;
-
   cout << "Phone: ";
   cin >> phone;
-
   cout << "Address: ";
   cin >> address;
   cout << endl;
 
+  // Creates student
   Student std(fname, lname, grade, phone, address);
   std.DisplayStudentInfo();
-
-  //TODO: Create report card
-
-  //TODO: Determine how to have student point to his/her report card
-  //TODO: Make std unique when pushing to vector
+  // Creates student's report card
+  Student::ReportCard std_report;
+  std_report.DisplayReportCard();
+  // Pointer to the report card
+  std.SetReportCard(&std_report);
+  // Add Student to database
   database.push_back(std);
-
 }
 
+// TODO: Find 
 void ModifyStudentRecord(Student& std)
 {
   // Navigation tab for modifying student record
@@ -192,7 +193,8 @@ void ModifyStudentRecord(Student& std)
         }
       case 6:
         {
-          std.EditGrades();
+          Student::ReportCard* report = std.GetReportCard();
+          (*report).EditGrades();
           break;
         }
       case 7: 
@@ -206,7 +208,6 @@ void ModifyStudentRecord(Student& std)
     // Display changes to the record
     std.DisplayStudentInfo();
   }
-
 }
 
 void DeleteStudentRecord()
