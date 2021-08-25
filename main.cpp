@@ -6,7 +6,7 @@ using namespace std;
 
 // Student Information
 void DisplayStudentRecords(vector<Student>);
-Student SearchStudentRecord(string, string, vector<Student>);
+Student SearchStudentRecord(vector<Student>);
 void AddStudentRecord(vector<Student>&);
 void ModifyStudentRecord(Student&);
 void DeleteStudentRecord();
@@ -48,15 +48,10 @@ int main()
         break;
       case 2: 
         {
-          string f_name;
-          string l_name;
-          cout << "First name: ";
-          cin >> f_name;
-          cout << "Last Name: ";
-          cin >> l_name;
           // Search for an individual's info and grades
-          Student student = SearchStudentRecord(f_name, l_name, database);
+          Student student = SearchStudentRecord(database);
           student.DisplayStudentInfo();
+          //TODO: Display Student Report Card
           break;
         }
       case 3:
@@ -66,13 +61,7 @@ int main()
       case 4: 
         {
           // Modify a student's info or report card
-          string f_name;
-          string l_name;
-          cout << "First name: ";
-          cin >> f_name;
-          cout << "Last name: ";
-          cin >> l_name;
-          Student student = SearchStudentRecord(f_name, l_name, database);
+          Student student = SearchStudentRecord(database);
           ModifyStudentRecord(student);
           break;
         }
@@ -104,8 +93,14 @@ void DisplayStudentRecords(vector<Student> database)
   }
 }
 
-Student SearchStudentRecord(string f_name, string l_name, vector<Student> database)
+Student SearchStudentRecord(vector<Student> database)
 {
+  string f_name, l_name;
+  cout << "First name: ";
+  cin >> f_name;
+  cout << "Last Name: ";
+  cin >> l_name;
+
   // Finds the student record whose first and last name
   // matches the arguements
   Student std;
@@ -158,14 +153,13 @@ void ModifyStudentRecord(Student& std)
   bool modify = true;
   while (modify) {
     cout << "\n|----------[Edit Record]----------|\n";
-    cout << "1. First name\n";
-    cout << "2. Last name\n";
-    cout << "3. Grade\n";
-    cout << "4. Phone number\n";
-    cout << "5. Address\n";
-    cout << "6. Create Report Card\n";
-    cout << "7. Edit Report Card\n";
-    cout << "8. Exit\n\n";
+    cout << "1. Edit First name\n";
+    cout << "2. Edit Last name\n";
+    cout << "3. Edit Grade\n";
+    cout << "4. Edit Phone number\n";
+    cout << "5. Edit Address\n";
+    cout << "6. Edit Report Card Grades\n";
+    cout << "7. Exit\n\n";
 
     cout << "~Select an option: ";
     int user_input;
@@ -174,61 +168,34 @@ void ModifyStudentRecord(Student& std)
     switch (user_input) {
       case 1: 
         {
-          cout << "Enter name: ";
-          string first_name;
-          cin >> first_name;
-          std.SetName(user_input, first_name);
+          std.SetName(user_input);
           break;
         }
       case 2: 
         {
-          cout << "Enter name: ";
-          string last_name;
-          cin >> last_name;
-          std.SetName(user_input, last_name);
+          std.SetName(user_input);
           break;
         }
       case 3: 
         {
-          cout << "Enter grade: ";
-          int new_grade;
-          cin >> new_grade;
-          std.SetGrade(new_grade);
+          std.SetGrade();
           break;
         }
       case 4:
         {
-          cout << "Enter phone number: ";
-          string new_phone;
-          cin >> new_phone;
-          std.SetPhoneNumber(new_phone);
+          std.SetPhoneNumber();
           break;
         }
       case 5:
         {
-          cout << "Enter new address: ";
-          string new_address;
-          cin >> new_address;
-          std.SetAddress(new_address);
+          std.SetAddress();
         }
       case 6:
         {
-          std.CreateReportCard();  
+          std.EditGrades();
           break;
         }
-      case 7:
-        {
-          string subject;
-          int grade;
-          cout << "Subject to edit: ";
-          cin >> subject;
-          cout << "Grade to add: ";
-          cin >> grade;
-          //NOTE: Fix student.cpp
-          std.EditReportCard(subject, grade);
-          break;
-        }
-      case 8: 
+      case 7: 
         {
           modify = false;
           break;

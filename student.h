@@ -2,7 +2,7 @@
 #define STUDENT_H
 
 #include <iostream>
-#include "report_card.h"
+/* #include "report_card.h" */
 using namespace std;
 
 class Student
@@ -13,21 +13,34 @@ class Student
   int grade;
   string phone;
   string address;
-  ReportCard *reportCard;
+  // Report Card
+  class ReportCard
+  {
+    private:
+    int math[2];
+    int history[2];
+    int science[2];
+    int english[2];
+
+    public:
+    ReportCard();
+
+    void SetGrades(int, int, int, int, int);
+    void EditGrades();
+    int GetGrade(string, int);
+  };
 
   public:
   Student();
-  Student(string fname, string lname, int grade, string phone, string address);
+  Student(string, string, int, string, string);
   
   void DisplayStudentInfo();
+  void DisplayReportCard(); // TODO: undeclared identifier??
   string GetFirstName();
   string GetLastName();
-  void SetName(int, string);
-  void SetGrade(int);
-  void SetPhoneNumber(string);
-  void SetAddress(string);
-  void DisplayReportCard();
-  void CreateReportCard();
-  void EditReportCard(string, int);
+  void SetName(int);
+  void SetGrade();
+  void SetPhoneNumber();
+  void SetAddress();
 };
 #endif

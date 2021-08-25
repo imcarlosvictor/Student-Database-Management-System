@@ -4,19 +4,19 @@
 #include <iostream>
 using namespace std;
 
-class ReportCard
-{
-  private:
-  int math[2];
-  int history[2];
-  int science[2];
-  int english[2];
+/* class ReportCard */
+/* { */
+/*   private: */
+/*   int math[2]; */
+/*   int history[2]; */
+/*   int science[2]; */
+/*   int english[2]; */
 
-  public:
-  ReportCard();
-  ReportCard(int math_first, int history_first, int science_first, int english_first);
+/*   public: */
+/*   ReportCard(); */
+/*   ReportCard(int math_first, int history_first, int science_first, int english_first); */
 
-  void GetReportCard();
-  void EditGrade(string, int);
-};
+/*   void GetReportCard(); */
+/*   void EditGrade(string, int); */
+/* }; */
 #endif
