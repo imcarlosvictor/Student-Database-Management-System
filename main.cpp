@@ -6,12 +6,11 @@ using namespace std;
 // Student Information
 void DisplayStudentRecords(vector<Student>);
 Student SearchStudentRecord(vector<Student>);
+int SearchStudentRecordIndex(vector<Student>, Student);
 void AddStudentRecord(vector<Student>&);
-void ModifyStudentRecord(Student&);
-void DeleteStudentRecord();
+void ModifyStudentRecord(vector<Student>&, Student&);
 // Report Card
-void EditReportCard();
-void RemoveStudentRecord();
+void DeleteStudentRecord(vector<Student>&, Student);
 
 
 int main()
@@ -26,15 +25,14 @@ int main()
   bool program = true;
   while (program)
   {
-    cout << "\n\t===== STUDENT REPORT CARD MANAGEMENT SYSTEM =====\n";
+    cout << "\n=============== STUDENT REPORT CARD MANAGEMENT SYSTEM ===============\n";
     cout << endl;
     cout << endl;
     cout << "\t\t1. Display Database Records\n";
     cout << "\t\t2. Search Student Record\n";
     cout << "\t\t3. Add New Record\n";
     cout << "\t\t4. Modify Student Record\n";
-    cout << "\t\t5. Delete Student Record\n";
-    cout << "\t\t6. Exit Record\n\n";
+    cout << "\t\t5. Exit Record\n\n";
 
     cout << "~Select an option: ";
     int user_input;
@@ -62,15 +60,10 @@ int main()
       case 4: 
         {
           Student student = SearchStudentRecord(database);
-          ModifyStudentRecord(student);
+          ModifyStudentRecord(database, student);
           break;
         }
       case 5:
-        {
-          DeleteStudentRecord();
-          break;
-        }
-      case 6:
         {
           program = false;
           break;
@@ -89,7 +82,7 @@ int main()
 // ####################################################
 void DisplayStudentRecords(vector<Student> database)
 {
-  cout << "\n|----------[Database Records]----------|\n";
+  cout << "\n|----------------[Database Records]----------------|\n";
   for (int i=0; i<database.size(); ++i) {
     database[i].DisplayStudentInfo();
     cout << endl;
@@ -113,6 +106,19 @@ Student SearchStudentRecord(vector<Student> database)
     }
   }
   return std;
+}
+
+int SearchStudentRecordIndex(vector<Student> database, Student std)
+{
+  // Finds the student record whose first and last name
+  // matches the arguements
+  int index;
+  for (int i=0; i<database.size(); ++i) {
+    if (database[i].GetFirstName() == std.GetFirstName() && database[i].GetLastName() == std.GetLastName()) {
+      index = i;
+    }
+  }
+  return index;
 }
 
 void AddStudentRecord(vector<Student>& database)
@@ -148,7 +154,7 @@ void AddStudentRecord(vector<Student>& database)
   std_report.DisplayReportCard();
 }
 
-void ModifyStudentRecord(Student& std)
+void ModifyStudentRecord(vector<Student>& std_database, Student& std)
 {
   // Navigation tab for modifying student record
   bool modify = true;
@@ -160,7 +166,8 @@ void ModifyStudentRecord(Student& std)
     cout << "4. Edit Phone number\n";
     cout << "5. Edit Address\n";
     cout << "6. Edit Report Card Grades\n";
-    cout << "7. Exit\n\n";
+    cout << "7. Delete Student Record\n";
+    cout << "8. Exit\n\n";
 
     cout << "~Select an option: ";
     int user_input;
@@ -198,7 +205,12 @@ void ModifyStudentRecord(Student& std)
           report.EditGrades();
           break;
         }
-      case 7: 
+      case 7:
+        {
+          DeleteStudentRecord(std_database, std);
+          break;
+        }
+      case 8: 
         {
           modify = false;
           break;
@@ -206,11 +218,13 @@ void ModifyStudentRecord(Student& std)
       default:
         cout << "Select an option within range.";
     }
-    std.DisplayStudentInfo();
   }
 }
 
-void DeleteStudentRecord()
+void DeleteStudentRecord(vector<Student>& std_database, Student std)
 {
-  ;
+  int index = SearchStudentRecordIndex(std_database, std);
+  std_database.erase(std_database.begin() + index);
+
+  cout << "~Student record deleted~\n";
 }
