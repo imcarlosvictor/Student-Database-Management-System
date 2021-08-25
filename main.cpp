@@ -142,7 +142,7 @@ void AddStudentRecord(vector<Student>& database)
   Student::ReportCard std_report;
   std_report.DisplayReportCard();
   // Pointer to the report card
-  std.SetReportCard(&std_report);
+  std.SetReportCard(std_report);
   // Add Student to database
   database.push_back(std);
 }
@@ -193,8 +193,8 @@ void ModifyStudentRecord(Student& std)
         }
       case 6:
         {
-          Student::ReportCard* report = std.GetReportCard();
-          (*report).EditGrades();
+          Student::ReportCard report = std.GetReportCard();
+          report.EditGrades();
           break;
         }
       case 7: 

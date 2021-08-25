@@ -43,6 +43,5 @@ class Student
   string phone;
   string address;
   ReportCard report;
-
 };
 #endif
