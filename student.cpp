@@ -7,6 +7,8 @@ Student::Student() {
   this->grade = 0;
   phone = "";
   address = "";
+  // Create report card
+  ReportCard reportCard;
 }
 
 Student::Student(string fname, string lname, int grade, string phone_num, string address)
@@ -27,6 +29,8 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
   }
   phone = ph_num;
   address = address;
+  // Create report card
+  ReportCard reportCard;
 }
 
 // Methods
@@ -97,7 +101,7 @@ void Student::CreateReportCard()
   cin >> english;
 
   ReportCard grades(math, history, science, english);
-  reportCard = grades;
+  reportCard = &grades;
 }
 
 //TODO: Access reportCard class

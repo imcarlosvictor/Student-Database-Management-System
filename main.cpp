@@ -35,8 +35,7 @@ int main()
     cout << "\t\t3. Add New Record\n";
     cout << "\t\t4. Modify Student Record\n";
     cout << "\t\t5. Delete Student Record\n";
-    cout << "\t\t6. Edit Report Card\n";
-    cout << "\t\t7. Exit Record\n\n";
+    cout << "\t\t6. Exit Record\n\n";
 
     cout << "~Select an option: ";
     int user_input;
@@ -81,8 +80,6 @@ int main()
         DeleteStudentRecord();
         break;
       case 6:
-        break;
-      case 7:
         program = false;
         break;
       default:
@@ -221,11 +218,14 @@ void ModifyStudentRecord(Student& std)
         }
       case 7:
         {
-          //TODO: Edit Report Card
           string subject;
-          string grade;
+          int grade;
+          cout << "Subject to edit: ";
+          cin >> subject;
+          cout << "Grade to add: ";
+          cin >> grade;
           //NOTE: Fix student.cpp
-          std.EditReportCard();
+          std.EditReportCard(subject, grade);
           break;
         }
       case 8: 

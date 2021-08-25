@@ -13,7 +13,7 @@ class Student
   int grade;
   string phone;
   string address;
-  ReportCard reportCard;
+  ReportCard *reportCard;
 
   public:
   Student();
