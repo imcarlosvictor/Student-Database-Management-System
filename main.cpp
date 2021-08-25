@@ -85,6 +85,7 @@ void DisplayStudentRecords(vector<Student> database)
   cout << "\n|----------------[Database Records]----------------|\n";
   for (int i=0; i<database.size(); ++i) {
     database[i].DisplayStudentInfo();
+    database[i].GetReportCard().DisplayReportCard();
     cout << endl;
   }
 }
