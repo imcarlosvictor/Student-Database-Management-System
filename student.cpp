@@ -35,7 +35,7 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
 // MEMBER FUNCTIONS
 void Student::DisplayStudentInfo()
 {
-  cout << "\n|##########[Student]##########|\n";
+  cout << "\n|-------------[Student Information]-------------|\n";
   cout << "First Name: " << f_name << endl;
   cout << "Last Name: " << l_name << endl;
   cout << "Student Grade: " << grade << endl;
@@ -90,7 +90,7 @@ void Student::SetAddress()
   address = new_address;
 }
 
-void Student::SetReportCard(Student::ReportCard &reportCard)
+void Student::SetReportCard(Student::ReportCard& reportCard)
 {
   report = reportCard;
 }
@@ -152,7 +152,7 @@ void Student::ReportCard::EditGrades()
 
 void Student::ReportCard::DisplayReportCard()
 {
-  cout << "|----------[Report Card]----------|\n";
+  cout << "\n|----------[Report Card]----------|\n";
   cout << "|  Subject  |  First   |   Final  |\n";
   cout << "|---------------------------------|\n";
   cout << "|   Math    |    " << math[0] << "    |    " << math[1] << "     |\n";

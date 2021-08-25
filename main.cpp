@@ -137,17 +137,17 @@ void AddStudentRecord(vector<Student>& database)
 
   // Creates student
   Student std(fname, lname, grade, phone, address);
-  std.DisplayStudentInfo();
   // Creates student's report card
   Student::ReportCard std_report;
-  std_report.DisplayReportCard();
-  // Pointer to the report card
+  // Pass reference to the report card
   std.SetReportCard(std_report);
   // Add Student to database
   database.push_back(std);
+  // Display Student Info
+  std.DisplayStudentInfo();
+  std_report.DisplayReportCard();
 }
 
-// TODO: Find 
 void ModifyStudentRecord(Student& std)
 {
   // Navigation tab for modifying student record
@@ -193,6 +193,7 @@ void ModifyStudentRecord(Student& std)
         }
       case 6:
         {
+          // Get student's report card
           Student::ReportCard report = std.GetReportCard();
           report.EditGrades();
           break;
@@ -203,9 +204,8 @@ void ModifyStudentRecord(Student& std)
           break;
         }
       default:
-              cout << "Select an option within range.";
+        cout << "Select an option within range.";
     }
-    // Display changes to the record
     std.DisplayStudentInfo();
   }
 }
