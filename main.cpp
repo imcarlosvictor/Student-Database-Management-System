@@ -17,8 +17,8 @@ int main()
 {
   vector<Student> database;
   //Populate database
-  Student std1("Carlos", "Torres", 8, "6478812154", "Homeboi");
-  Student std2("Marko", "Polo", 8, "6479112154", "Homeboi");
+  Student std1("Carlos", "Torres", 8, "6478741193", "King St");
+  Student std2("Marko", "Polo", 8, "6479112645", "Wonderland");
   database.push_back(std1);
   database.push_back(std2);
 
