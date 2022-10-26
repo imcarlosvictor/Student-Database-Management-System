@@ -10,22 +10,22 @@ class Student
   public:
   class ReportCard
   {
+    public:
+    ReportCard();
+    void SetGrades(int math, int history, int science, int english);
+    void EditGrades();
+    void DisplayReportCard();
+    int GetGrade(string, int);
+
     private:
     int math[2];
     int history[2];
     int science[2];
     int english[2];
-
-    public:
-    ReportCard();
-    void SetGrades(int, int, int, int, int);
-    void EditGrades();
-    void DisplayReportCard();
-    int GetGrade(string, int);
   };
 
   Student();
-  Student(string, string, int, string, string);
+  Student(string f_name, string l_name, int grade, string phone, string address);
   void DisplayStudentInfo();
   string GetFirstName();
   string GetLastName();

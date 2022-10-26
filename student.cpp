@@ -12,8 +12,7 @@ Student::Student() {
   address = "";
 }
 
-Student::Student(string fname, string lname, int grade, string phone_num, string address)
-{
+Student::Student(string fname, string lname, int grade, string phone_num, string address) {
   f_name = fname;
   l_name = lname;
   this->grade = grade;
@@ -33,8 +32,7 @@ Student::Student(string fname, string lname, int grade, string phone_num, string
 }
 
 // MEMBER FUNCTIONS
-void Student::DisplayStudentInfo()
-{
+void Student::DisplayStudentInfo() {
   cout << "\n|-------------[Student Information]-------------|\n";
   cout << "First Name: " << f_name << endl;
   cout << "Last Name: " << l_name << endl;
@@ -43,18 +41,15 @@ void Student::DisplayStudentInfo()
   cout << "Address: " << address << endl;
 }
 
-string Student::GetFirstName()
-{
+string Student::GetFirstName() {
   return f_name;
 }
 
-string Student::GetLastName()
-{
+string Student::GetLastName() {
   return l_name;
 }
 
-void Student::SetName(int name_edit)
-{
+void Student::SetName(int name_edit) {
   cout << "Enter name: ";
   string new_name;
   cin >> new_name;
@@ -66,37 +61,32 @@ void Student::SetName(int name_edit)
   }
 }
 
-void Student::SetGrade()
-{
+void Student::SetGrade() {
   cout << "Enter grade: ";
   int new_grade;
   cin >> new_grade;
   grade = new_grade;
 }
 
-void Student::SetPhoneNumber()
-{
+void Student::SetPhoneNumber() {
   cout << "Enter phone number: ";
   string new_phone;
   cin >> new_phone;
   phone = new_phone;
 }
 
-void Student::SetAddress()
-{
+void Student::SetAddress() {
   cout << "Enter new address: ";
   string new_address;
   cin >> new_address;
   address = new_address;
 }
 
-void Student::SetReportCard(Student::ReportCard& reportCard)
-{
+void Student::SetReportCard(Student::ReportCard& reportCard) {
   report = reportCard;
 }
 
-Student::ReportCard Student::GetReportCard()
-{
+Student::ReportCard Student::GetReportCard() {
   return report;
 }
 
@@ -104,8 +94,7 @@ Student::ReportCard Student::GetReportCard()
 // REPORT CARD
 // ########################################## 
 // CONSTRUCTORS
-Student::ReportCard::ReportCard()
-{
+Student::ReportCard::ReportCard() {
   // First half
   math[0] = 0;
   history[0] = 0;
@@ -119,16 +108,14 @@ Student::ReportCard::ReportCard()
 }
 
 // MEMBER FUNCTIONS
-void Student::ReportCard::SetGrades(int period, int mth, int his, int sci, int eng)
-{
+void Student::ReportCard::SetGrades(int period, int mth, int his, int sci, int eng) {
   math[period] = mth;
   history[period] = his;
   science[period] = sci;
   english[period] = eng;
 }
 
-void Student::ReportCard::EditGrades()
-{
+void Student::ReportCard::EditGrades() {
   string subject;
   int period;
   int grade;
@@ -150,8 +137,7 @@ void Student::ReportCard::EditGrades()
     english[period] = grade;
 }
 
-void Student::ReportCard::DisplayReportCard()
-{
+void Student::ReportCard::DisplayReportCard() {
   cout << "\n|----------[Report Card]----------|\n";
   cout << "|  Subject  |  First   |   Final  |\n";
   cout << "|---------------------------------|\n";
@@ -162,8 +148,7 @@ void Student::ReportCard::DisplayReportCard()
   cout << endl;
 }
 
-int Student::ReportCard::GetGrade(string subject, int period)
-{
+int Student::ReportCard::GetGrade(string subject, int period) {
   int grade;
   if (subject == "math")
     grade = math[period];

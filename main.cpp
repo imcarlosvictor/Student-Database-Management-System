@@ -13,8 +13,7 @@ void ModifyStudentRecord(vector<Student>&, Student&);
 void DeleteStudentRecord(vector<Student>&, Student);
 
 
-int main()
-{
+int main() {
   vector<Student> database;
   //Populate database
   Student std1("Carlos", "Torres", 8, "6478741193", "King St");
@@ -23,8 +22,7 @@ int main()
   database.push_back(std2);
 
   bool program = true;
-  while (program)
-  {
+  while (program) {
     cout << "\n=============== STUDENT REPORT CARD MANAGEMENT SYSTEM ===============\n";
     cout << endl;
     cout << endl;
@@ -37,34 +35,28 @@ int main()
     cout << "~Select an option: ";
     int user_input;
     cin >> user_input;
-    switch (user_input)
-    {
-      case 1:
-        {
+    switch (user_input) {
+      case 1: {
           // Print all student and report cards
           DisplayStudentRecords(database);
           break;
         }
-      case 2: 
-        {
+      case 2: {
           // Search for an individual's info and grades
           Student student = SearchStudentRecord(database);
           student.DisplayStudentInfo();
           break;
         }
-      case 3:
-        {
+      case 3: {
           AddStudentRecord(database);
           break;
         }
-      case 4: 
-        {
+      case 4: {
           Student student = SearchStudentRecord(database);
           ModifyStudentRecord(database, student);
           break;
         }
-      case 5:
-        {
+      case 5: {
           program = false;
           break;
         }
@@ -80,8 +72,7 @@ int main()
 // ####################################################
 // Functions
 // ####################################################
-void DisplayStudentRecords(vector<Student> database)
-{
+void DisplayStudentRecords(vector<Student> database) {
   cout << "\n|----------------[Database Records]----------------|\n";
   for (int i=0; i<database.size(); ++i) {
     database[i].DisplayStudentInfo();
@@ -90,8 +81,7 @@ void DisplayStudentRecords(vector<Student> database)
   }
 }
 
-Student SearchStudentRecord(vector<Student> database)
-{
+Student SearchStudentRecord(vector<Student> database) {
   string f_name, l_name;
   cout << "First name: ";
   cin >> f_name;
@@ -109,8 +99,7 @@ Student SearchStudentRecord(vector<Student> database)
   return std;
 }
 
-int SearchStudentRecordIndex(vector<Student> database, Student std)
-{
+int SearchStudentRecordIndex(vector<Student> database, Student std) {
   // Finds the student record whose first and last name
   // matches the arguements
   int index;
@@ -122,8 +111,7 @@ int SearchStudentRecordIndex(vector<Student> database, Student std)
   return index;
 }
 
-void AddStudentRecord(vector<Student>& database)
-{
+void AddStudentRecord(vector<Student>& database) {
   string fname;
   string lname;
   int grade;
@@ -155,8 +143,7 @@ void AddStudentRecord(vector<Student>& database)
   std_report.DisplayReportCard();
 }
 
-void ModifyStudentRecord(vector<Student>& std_database, Student& std)
-{
+void ModifyStudentRecord(vector<Student>& std_database, Student& std) {
   // Navigation tab for modifying student record
   bool modify = true;
   while (modify) {
@@ -175,44 +162,36 @@ void ModifyStudentRecord(vector<Student>& std_database, Student& std)
     cin >> user_input;
 
     switch (user_input) {
-      case 1: 
-        {
+      case 1: {
           std.SetName(user_input);
           break;
         }
-      case 2: 
-        {
+      case 2: {
           std.SetName(user_input);
           break;
         }
-      case 3: 
-        {
+      case 3: {
           std.SetGrade();
           break;
         }
-      case 4:
-        {
+      case 4: {
           std.SetPhoneNumber();
           break;
         }
-      case 5:
-        {
+      case 5: {
           std.SetAddress();
         }
-      case 6:
-        {
+      case 6: {
           // Get student's report card
           Student::ReportCard report = std.GetReportCard();
           report.EditGrades();
           break;
         }
-      case 7:
-        {
+      case 7: {
           DeleteStudentRecord(std_database, std);
           break;
         }
-      case 8: 
-        {
+      case 8: {
           modify = false;
           break;
         }
@@ -222,8 +201,7 @@ void ModifyStudentRecord(vector<Student>& std_database, Student& std)
   }
 }
 
-void DeleteStudentRecord(vector<Student>& std_database, Student std)
-{
+void DeleteStudentRecord(vector<Student>& std_database, Student std) {
   int index = SearchStudentRecordIndex(std_database, std);
   std_database.erase(std_database.begin() + index);
 
