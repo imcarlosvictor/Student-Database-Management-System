@@ -1,5 +1,6 @@
 # student-database-management-system
 A CLI application that designed to leverage CRUD functionality by allowing users to create student profiles and report cards.
+![project-image](/images/student_db_management_project.png)
 
 # Installation
 1. Clone the repo. <br>
